@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::check()){
+            if(Auth::user()->level == 0){
+                return redirect('/admin');
+            }elseif(Auth::user()->level == 1){
+                return redirect('/');
+            }else{
+                return redirect('/');
+            }
+        }
     }
 }
