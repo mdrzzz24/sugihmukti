@@ -169,7 +169,7 @@
 
     </section>
        <!-- Footer -->
-       <footer class="py-3 d-flex align-items-center" style = "background-color: #80AF81">
+       <footer class="py-3 d-flex align-items-center container" style = "background-color: #80AF81">
         <img src="{{ asset('images/logo.png') }}" alt="Logo" class="me-3 ms-5" style="width: 120px; height: 110px;">
         <div>
             <h2 class="h4 text-white fw-bold">DESA SUGIHMUKTI</h2>
