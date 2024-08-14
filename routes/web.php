@@ -17,6 +17,34 @@ Route::get('/', function () {
     return view('user.index');
 });
 
+Route::get('/tentang', function () {
+    return view('user.tentang');
+});
+
+Route::get('/wisata', function () {
+    return view('user.wisata');
+});
+
+Route::get('/pertanian', function () {
+    return view('user.produk.pertanian');
+});
+
+Route::get('/kesehatan', function () {
+    return view('user.produk.kesehatan');
+});
+
+Route::get('/kopi', function () {
+    return view('user.produk.kopi');
+});
+
+Route::get('/makanan', function () {
+    return view('user.produk.makanan');
+});
+
+Route::get('/kerajinan', function () {
+    return view('user.produk.kerajinan');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

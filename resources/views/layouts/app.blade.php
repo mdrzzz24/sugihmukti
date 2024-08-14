@@ -55,11 +55,11 @@
                               Produk
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Produk Pertanian</a></li>
-                              <li><a class="dropdown-item" href="#">Produk Kopi</a></li>
-                              <li><a class="dropdown-item" href="#">Produk Kerajinan Tangan</a></li>
-                              <li><a class="dropdown-item" href="#">Produk Herbal dan Kesehatan</a></li>
-                              <li><a class="dropdown-item" href="#">Produk Makanan dan Minuman</a></li>
+                              <li><a class="dropdown-item" href="/pertanian">Produk Pertanian</a></li>
+                              <li><a class="dropdown-item" href="/kopi">Produk Kopi</a></li>
+                              <li><a class="dropdown-item" href="/kerajinan">Produk Kerajinan Tangan</a></li>
+                              <li><a class="dropdown-item" href="/kesehatan">Produk Herbal dan Kesehatan</a></li>
+                              <li><a class="dropdown-item" href="/makanan">Produk Makanan dan Minuman</a></li>
                             </ul>
                           </li>
                         @guest

@@ -40,7 +40,7 @@
                   <div class="card">
                     <img src="{{ asset('images/paket1.jpeg') }}" alt="Wisata" class="img-fluid rounded ms-3 me-3 mt-3">
                     <div class="card-body">
-                      <a href="#" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
+                      <a href="/wisata" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                   <div class="card">
                     <img src="{{ asset('images/paket2.jpeg') }}" alt="Wisata" class="img-fluid rounded ms-3 me-3 mt-3">
                     <div class="card-body">
-                      <a href="#" class="btn fw-bold py-2 px-6 rounded-pill mt-4 " style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
+                      <a href="/wisata" class="btn fw-bold py-2 px-6 rounded-pill mt-4 " style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
                     </div>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
                   <div class="card">
                     <img src="{{ asset('images/paket3.jpeg') }}" alt="Wisata" class="img-fluid rounded ms-3 me-3 mt-3">
                     <div class="card-body">
-                        <a href="#" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
+                        <a href="/wisata" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
                     </div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@
                   <div class="card">
                     <img src="{{ asset('images/paket4.jpeg') }}" alt="Wisata" class="img-fluid rounded ms-3 me-3 mt-3">
                     <div class="card-body">
-                        <a href="#" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
+                        <a href="/wisata" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">Lihat Selengkapnya</a>
                     </div>
                   </div>
                 </div>
@@ -85,7 +85,7 @@
                         <li>Produk Pertanian</li>
                         <li>Kerajinan Tangan</li>
                     </ul>
-                    <a href="#produk" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">
+                    <a href="/pertanian" class="btn fw-bold py-2 px-6 rounded-pill mt-4" style="background-color: #80AF81; border-color: #80AF81; color: white;">
                         Lihat Lainnya
                     </a>
                 </div>
@@ -169,7 +169,7 @@
 
     </section>
        <!-- Footer -->
-       <footer class="py-3 d-flex align-items-center container" style = "background-color: #80AF81">
+       <footer class="py-3 d-flex align-items-center" style = "background-color: #80AF81">
         <img src="{{ asset('images/logo.png') }}" alt="Logo" class="me-3 ms-5" style="width: 120px; height: 110px;">
         <div>
             <h2 class="h4 text-white fw-bold">DESA SUGIHMUKTI</h2>
