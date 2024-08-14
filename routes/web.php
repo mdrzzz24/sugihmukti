@@ -48,12 +48,61 @@ Route::get('/kerajinan', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('user.index');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     // Route::get('/', [AdminController::class, 'index'] );
     Route::get('/', function () {
-        return('hallo admin');
+        return view('admin.index');
+    });
+    Route::get('/content', function () {
+        return view('admin.content');
+    });
+    Route::get('/users', function () {
+        return view('admin.user');
+    });
+    Route::get('/news', function () {
+        return view('admin.news');
     });
 
 });
+
+Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
+    // Route::get('/', [AdminController::class, 'index'] );
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    Route::get('/content', function () {
+        return view('admin.content');
+    });
+    Route::get('/users', function () {
+        return view('admin.user');
+    });
+    Route::get('/news', function () {
+        return view('admin.news');
+    });
+
+});
+
