@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,12 +69,27 @@ Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/content', function () {
         return view('admin.content');
     });
-    Route::get('/users', function () {
-        return view('admin.user');
+    Route::get('/product', function () {
+        return view('admin.product');
     });
-    Route::get('/news', function () {
-        return view('admin.news');
-    });
+    // Route::get('/users', function () {
+    //     return view('admin.user');
+    // });
+    // Route::get('/news', function () {
+    //     return view('admin.news');
+    // });
+    Route::get('/users', [AdminController::class, 'getuser']);
+    Route::get('/addcontent', [AdminController::class, 'addcontent']);
+    Route::get('/addaccount', [AdminController::class, 'addaccount']);
+    Route::get('/news', [AdminController::class, 'showNews'])->name('admin.news');
+    Route::post('/account', [AdminController::class, 'account']);
+    Route::get('/addnews', [AdminController::class, 'addnews']);
+    Route::post('/storenews', [AdminController::class, 'storenews']);
+    Route::get('/news/edit/{id}', [AdminController::class, 'edit'])->name('news.edit');
+    Route::post('/news/update/{id}', [AdminController::class, 'update'])->name('news.update');
+    Route::get('/news/delete/{id}', [AdminController::class, 'destroy'])->name('news.delete');
+
+
 
 });
 
