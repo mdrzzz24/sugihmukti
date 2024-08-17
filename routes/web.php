@@ -69,9 +69,9 @@ Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/content', function () {
         return view('admin.content');
     });
-    Route::get('/product', function () {
-        return view('admin.product');
-    });
+    // Route::get('/product', function () {
+    //     return view('admin.product');
+    // });
     // Route::get('/users', function () {
     //     return view('admin.user');
     // });
@@ -81,6 +81,13 @@ Route::prefix('admin')->middleware('auth','isAdmin')->group(function(){
     Route::get('/users', [AdminController::class, 'getuser']);
     Route::get('/addcontent', [AdminController::class, 'addcontent']);
     Route::get('/addaccount', [AdminController::class, 'addaccount']);
+    Route::get('/product', [AdminController::class, 'product'])->name('admin.product');
+    Route::get('/addproduct', [AdminController::class, 'addproduct'])->name('admin.addproduct');
+    Route::post('/storeproduct', [AdminController::class, 'storeproduct'])->name('storeproduct');
+    Route::get('/product/delete/{id}', [AdminController::class, 'destroyProduct'])->name('product.delete');
+    Route::get('/product/edit/{id}', [AdminController::class, 'editproduct'])->name('product.edit');
+    Route::post('/product/update/{id}', [AdminController::class, 'updateproduct'])->name('product.update');
+
     Route::get('/news', [AdminController::class, 'showNews'])->name('admin.news');
     Route::post('/account', [AdminController::class, 'account']);
     Route::get('/addnews', [AdminController::class, 'addnews']);

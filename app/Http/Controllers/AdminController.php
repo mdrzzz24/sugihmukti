@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -92,4 +93,73 @@ class AdminController extends Controller
 
     return redirect()->route('admin.news')->with('success', 'News updated successfully.');
     }
+    function addproduct() {
+        return view('admin.addproduct');
+    }
+    function product(){
+        $productdata = Product::all();
+
+        return view('admin.product', compact('productdata'));
+    }
+    function storeproduct(Request $request) {
+        // Remove validation for testing purposes
+        // $request->validate([ ... ]);
+        // dd($request);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/products'), $imageName);
+        }
+
+        $product = new Product();
+        $product->category = $request['category'];
+        $product->title = $request['title'];
+        $product->image = $imageName ?? null; // Handle case if image isn't uploaded
+        $product->description = $request['description'];
+        $product->save();
+
+        return redirect()->route('admin.product')->with('success', 'Product added successfully!');
+    }
+    public function destroyProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('admin.product')->with('success', 'Product deleted successfully.');
+    }
+    function editproduct($id) {
+        $product = Product::findOrFail($id);
+        return view('admin.editproduct', compact('product'));
+
+    }
+
+    public function updateproduct(Request $request, $id)
+    {
+        $request->validate([
+            'category' => 'required|string',
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'nullable|string',
+        ]);
+
+        $product = Product::findOrFail($id);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $product->image = $imageName;
+        }
+
+        // Update product attributes
+        $product->category = $request->input('category');
+        $product->title = $request->input('title');
+        $product->description = $request->input('description');
+        $product->save();
+
+        return redirect()->route('admin.product', $id)->with('success', 'Product updated successfully');
+    }
+
+
 }
